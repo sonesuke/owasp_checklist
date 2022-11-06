@@ -1,0 +1,56 @@
+[tool.poetry]
+name = "owasp-checklist-setup"
+version = "0.1.0"
+description = ""
+authors = ["sonesuke <iamsonesuke@gmail.com>"]
+readme = "README.md"
+packages = [{include = "owasp_checklist_setup"}]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+fire = "^0.4.0"
+
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^0.982"
+black = "^22.10.0"
+isort = "^5.10.1"
+flake8 = "^5.0.4"
+pysen = "^0.10.2"
+pytest = "^7.2.0"
+pytest-cov = "^4.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+filterwarnings = ["error", "ignore::UserWarning"]
+addopts = "--cov-report term-missing --cov=mypo --cov-fail-under=100"
+testpaths = [
+    "tests"
+]
+
+[tool.pysen]
+version = "0.10.2"
+
+[tool.pysen.lint]
+enable_black = true
+enable_flake8 = true
+enable_isort = true
+enable_mypy = true
+mypy_preset = "strict"
+line_length = 120
+py_version = "py37"
+isort_known_third_party = ["fire"]
+isort_known_first_party = ["owasp_checklist_setup"]
+mypy_path = ["."]
+
+[[tool.pysen.lint.mypy_targets]]
+paths = ["."]
+
+[tool.poetry.scripts]
+test = "pytest ."
+lint = "pysen run lint"
+format = "pysen run format"
