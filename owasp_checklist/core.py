@@ -78,10 +78,10 @@ def out(items: List[Dict[Any, Any]], format: str, level: int) -> None:
                 print("")
                 print(f"## {item['category_number']} {item['category']}")
                 print("")
-                print("| # | Description | L1 | L2 | L3 | CWE |")
-                print("| :---: | :--- | :---: | :---:| :---: | :---: |")
+                print("| # | Description | L1 | L2 | L3 | CWE | Check |")
+                print("| :---: | :--- | :---: | :---:| :---: | :---: | :---: |")
 
             no = f"**{item['number']}**"
             print(
-                f"| {no} | {item['description']} | {item['level_1']} | {item['level_2']} | {item['level_3']} | {item['cwe']} |"
+                f"| {no} | {item['description']} | {item['level_1']} | {item['level_2']} | {item['level_3']} | {item['cwe']} | |"
             )
