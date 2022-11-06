@@ -16,5 +16,13 @@ poetry install
 
 
 ```
-poetry run test
+poetry run pytest .
+```
+
+```
+poetry run pysen run format
+```
+
+```
+poetry run pysen run lint
 ```
